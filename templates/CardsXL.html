@@ -1,0 +1,29 @@
+<section>
+    {% for v in cardsxl %}
+    <div class=" shadow-4-strong">
+        <a href="#" onclick="document.getElementById('boton_modal_{{v.n}}').click();">
+
+        <div class="row ">
+            <div class="col-md-6 gx-5 mb-4">
+                <div class="bg-image hover-overlay ripple shadow-2-strong " data-mdb-ripple-color="light">
+                    <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">gdfgfdg</div>
+                </div>
+            </div>
+
+            <div class="col-md-6 gx-5 mb-4 ">
+                <h4><strong>Facilis consequatur eligendi</strong></h4>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+                    eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+                    sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                </p>
+
+            </div>
+        </div>
+    </a>
+
+    </div>
+    <br><br>
+    {% endfor %}
+</section>

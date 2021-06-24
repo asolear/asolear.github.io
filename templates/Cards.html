@@ -1,0 +1,27 @@
+<section>
+    <!-- <p class="subheader text-center mb-4 pb-2">Cards</p> -->
+    <div class="row">
+        {% for v in cards %}
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card">
+                <a href="#" class="link-dark" onclick="document.getElementById('boton_modal_{{v.n}}').click();">
+
+                    <img src="https://mdbootstrap.com/img/Photos/new-templates/linkedin/img3.jpg" class="card-img-top"
+                        alt="..." />
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-3">NEW</span>
+                        <h4 class="semibold mb-3">Card title</h4>
+                        <p class="mb-3">
+                            {{v.content}}
+                        </p>
+                        <a href="#" class="text-primary d-flex align-items-center">Call to action
+                            <i class="mi mi-ChevronRight ms-2"></i>
+                        </a>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

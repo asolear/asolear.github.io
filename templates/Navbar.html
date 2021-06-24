@@ -1,0 +1,59 @@
+<!-- Navbar -->
+<section>
+    <!-- <nav class="navbar navbar-expand-lg bg-primary  d-lg-block" style="z-index: 2000;"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark  d-lg-block fixed-top " style="z-index: 2000;">
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light"> -->
+
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-label="Toggle navigation" id='hamburgesa' onclick="$('.modal').modal('hide');">
+                <i class="fas fa-bars text-warning"> Asolear FV</i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" onclick="$('.modal').modal('hide');" href="#">
+                    <i class="fas fa-charging-station text-warning fa-1x"></i>
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    {% for v in datos %}
+                    <li class="nav-item {{v.especifico}}">
+                        <a class="nav-link" href="#" onclick="
+                        document.getElementById('boton_modal_{{v.n}}').click();
+                        document.getElementById('hamburgesa').click()
+                            "><strong class='text-warning'>{{v.headline}}</strong></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3 dropdown-toggle hidden-arrow" role="button" aria-expanded="false"
+                    id="whatsapp" href="https://wa.me/034600366211/?text=Comentario ...">
+
+                    <i class="fab fa-whatsapp text-success fa-lg"></i>
+                </a>
+                <a class="text-reset me-3 dropdown-toggle hidden-arrow" id="navbarDropdownMenuLink" role="button"
+                    aria-expanded="false" onclick="document.getElementById('boton_modal_CONTACTO').click();">
+                    <i class="fas fa-info-circle text-success fa-lg"></i>
+                </a>
+
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</section>
+
+
+<!-- Navbar -->

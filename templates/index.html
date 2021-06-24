@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>INFRAESTRUCTURA PARA LA RECARGA DE VEHICULOS ELECTRICOS</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mdb.min.css')}}" />
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/mdb.dark.min.css')}}" /> -->
+
+    <!-- Custom styles -->
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        {%include 'Modal.html' %}
+        
+        {% set datos=menu %} {%include 'Navbar.html' %}
+        {% set datos=menu %} {%include 'Carousel.html' %}
+    </header>
+    <main class="mt-5">
+        <div class="container">
+            {% for v in menu %}
+            <hr class="my-5" />
+            <h2>{{v.headline}}</h2>
+            <h4>{{v.headline2}}</h4>
+            {{v.content}}
+            {% include v.plantilla %}
+            {% endfor %}
+
+            <hr class="my-5" />
+            {%include 'Footer.html' %}
+            {%include 'cookie.html' %}
+        </div>
+    </main>
+
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+    <!-- Custom scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

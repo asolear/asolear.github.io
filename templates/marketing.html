@@ -1,0 +1,43 @@
+<style>
+    /* MARKETING CONTENT
+-------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .marketing h2 {
+        font-weight: 400;
+    }
+
+    .marketing .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+    }
+</style>
+
+<!-- Marketing messaging and featurettes
+  ================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<section>
+
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            {% for v in marketing %}
+            <div class="col-lg-4 shadow-4">
+                <a href=""><i class="fa {{v.ico}} fa-3x"></i></a>
+                <br><br>
+                <br>
+                <h2>{{v.headline}}</h2>
+                <p>{{v.content}}</p>
+                <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            {% endfor %}
+        </div><!-- /.row -->
+    </div>
+</section>
