@@ -190,7 +190,7 @@
                                         value="Muchas gracias, en breve le contactaremos.">
                                     <input class="form-control" type="hidden" name="_captcha" value="false">
                                     <input type="hidden" name="_next" value="https://asolear.es/contactado.html">
-                                    <input type="hidden" name="_subject" >
+                                    <input type="hidden" name="_subject" id="_subject" value="COLECTIVO">
                                     <input type="hidden" name="_autoresponse"
                                         value="Gracias, en breve le contactaremos.">
                                     <input type="hidden" name='lat' class="form-control" id="lat">
@@ -199,7 +199,7 @@
 
 
 
-                                    <input hidden name='Proyecto' class="form-control" id="Proyecto">
+                                    <input hidden name='proyecto' class="form-control" id="proyecto">
     
  
                                     <label for="Nombre">Planta</label>
@@ -400,10 +400,10 @@
 
         var url_string = window.location.href; //window.location.href
         var url = new URL(url_string);
-        var Proyecto = url.searchParams.get("Proyecto");
+        var ref = url.searchParams.get("ref");
 
-        document.getElementById("Proyecto").value = Proyecto;
-        document.getElementById("_subject").value = "COLECTIVO"+Proyecto;
+        document.getElementById("proyecto").value = ref;
+        document.getElementById("_subject").value = "COLECTIVO"+ref;
 
     </script>
 
