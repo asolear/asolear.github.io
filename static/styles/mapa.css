@@ -1,0 +1,13 @@
+#map{
+    height: 500px;
+    width: 100%;
+    margin : auto;
+    /* margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px; */
+}
+
+/* para que funcione la busqueda enb el input */
+.pac-container {
+    z-index: 10000 !important;
+}

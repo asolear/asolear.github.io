@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<!-- 127.0.0.1:5501/proyecto.html?Proyecto=fasdfasd -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Autoconsumo Colectivo. Paneles solares. Energia solar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="theme-color" content="#7952b3">
+    <script data-require="leaflet@0.7.3" data-semver="0.7.3"
+        src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        #map {
+            position: relative;
+            border: 1px solid black;
+            border-radius: 8px;
+            height: 400px;
+            /* or as desired */
+            width: 100%;
+            /* This means "100% of the width of its container", the .col-md-8 */
+        }
+    </style>
+
+
+
+
+    <link data-require="leaflet@0.7.3" data-semver="0.7.3" rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="static/styles/asolear.css" rel="stylesheet">
+
+
+
+    <!-- Add Google Maps Via JavaScript-->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNT1Fptd2xsBhUkzHB8gAP7lbwFIUzUas&libraries=places"></script> -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNo8yVR1bVgiLVO2QyXaRnHZRuMjVNuZ4&libraries=places"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <!-- <script type="text/javascript" src="static/JavaScript/mapa.js"></script> -->
+    <!-- <script type="text/javascript" src="static/JavaScript/cookies.js"></script> -->
+
+</head>
+
+<body>
+
+
+
+    <button hidden id='boton_modal_formulario_hogar' type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#modal_formulario_hogar">
+        formulario_modal
+    </button>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+            <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary "> -->
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://asolear.es/"><img src="img/asolear.svg" alt="" class="img-fluid"
+                        width="30" height="30" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <!-- 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                AUTOCONSUMO
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item"
+                    onclick="document.getElementById('modal_guia_autoconsumidor_5_pasos').click()" href="#">HOGAR</a>
+                </li>
+                <li><a class="dropdown-item" onclick="document.getElementById('modal_guia_profesional').click()"
+                    href="#">EMPRESA</a>
+                </li>
+                <li><a class="dropdown-item" href="#">AUTOCONSUMO COLECTIVO</a>
+                </li>
+              </ul>
+            </li>
+ -->
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#autoconsumo">AUTOCONSUMO COLECTIVO</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#comunidad">COMUNIDAD ENERGETICA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#trabajos">TRABAJOS</a>
+                        </li> -->
+                        <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Nosotros
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item"
+                    onclick="document.getElementById('modal_guia_autoconsumidor_5_pasos').click()" href="#">Guía
+                    práctica
+                    para convertirse en autoconsumidor en 5 pasos (IDAE)</a>
+                </li>
+                <li><a class="dropdown-item" onclick="document.getElementById('modal_guia_profesional').click()"
+                    href="#">Guía profesional de tramitación del autoconsumo (IDAE)</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Acerca de Asolear</a></li>
+              </ul>
+            </li> -->
+                    </ul>
+
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <ul class="navbar-nav">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#contacto">CONTACTO</a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-global="phone" href="tel:952289557" data-track-event="click"
+                                data-track-action="phone_link">☎ 952 289 557</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://wa.me/34600366211/?text=Autoconsumo%20Eficiencia%20Comunidad"
+                                target="_blank">
+                                <img src="img/logo-wasap.png" width="40" height="40">
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="btn btn-secondary btn-lg " role="button"
+                                onclick="document.getElementById('modal_login').click()" class="stretched-link"
+                                target="_blank">
+                                🧑‍💼
+                            </a>
+                        </li> -->
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+
+
+
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <form action="https://formsubmit.co/admin@asolear.es" method="POST"
+                            enctype="multipart/form-data">
+                            <!-- comandos -->
+                            <div class="row">
+                                <!-- <div class="col-md-6" style='border: 1px solid white '>
+                                    <label for="Ubicacion">Ubicacion</label>
+                                    <div id="map"></div>
+                                </div> -->
+                                <div class="col-md-6" style='border: 1px solid white '>
+                                    <input type="hidden" name="_template" value="table">
+                                    <input type="hidden" name="_autoresponse"
+                                        value="Muchas gracias, en breve le contactaremos.">
+                                    <input class="form-control" type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_next" value="https://asolear.es/contactado.html">
+                                    <input type="hidden" name="_subject" value="COLECTIVO">
+                                    <input type="hidden" name="_autoresponse"
+                                        value="Gracias, en breve le contactaremos.">
+                                    <input type="hidden" name='lat' class="form-control" id="lat">
+                                    <input type="hidden" name='lng' class="form-control" id="lng">
+
+
+
+
+                                    <input hidden name='Proyecto' class="form-control" id="Proyecto">
+    
+ 
+                                    <label for="Nombre">Planta</label>
+                                    <input name='Planta' class="form-control" id="Planta" placeholder="Planta" required>    
+                                    <label for="Puerta">Puerta</label>
+                                    <input name='Puerta' class="form-control" id="Puerta" placeholder="Puerta" required>
+                                    <label for="Nombre">Portal</label>
+                                    <input name='Portal' class="form-control" id="Portal" placeholder="Portal" >   
+                                    <label for="Nombre">Nombre</label>
+                                    <input name='nombre' class="form-control" id="nombre" placeholder="Nombre" required>
+
+                                    <label for="email">Email</label>
+                                    <input name='email' type="email" class="form-control" id="email"
+                                        placeholder="Email" required>
+                                    <!-- <label for="name">soy</label>
+                                    <select name='titular' class="form-control" id="funcion" required>
+                                        <option value="Administrador">Administrador de una Comunidad de vecinos
+                                        </option>
+                                        <option value="Presidente" selected>Presidente de una Comunidad de vecinos
+                                        </option>
+                                        <option value="Vecino">Vecino de una Comunidad</option>
+                                        <option value="Otro">Otro</option>
+                                    </select> -->
+
+                                    <!-- <label for="name">Servicio</label>
+                                    <select name='servicio' class="form-control" id="Servicio" required>
+                                        <option value="Oferta" selected>Recibir Oferta para la instalacion de
+                                            paneles FV.</option>
+                                        <option value="Eficiencia">Estudio de Eficiencia energética</option>
+                                        <option value="Comunidad">Crear una Comunidad energética</option>
+                                        <option value="Incidencia">Comunidar Incidencia en mi Instalacion FV.
+                                        </option>
+                                        <option value="Registro">Registrarme</option>
+                                        <option value="Otro">Otro</option>
+                                    </select> -->
+
+                                    <!-- <label for="Telefono">Telefono</label>
+                                    <input name='telefono' class="form-control" id="Telefono" placeholder="Telefono"
+                                        required>
+ -->
+
+                                    <label for="name">Comentario o consulta</label>
+                                    <input name='consulta' class="form-control" id="message2" placeholder="cometario"
+                                        >
+
+                                    <h4 id="response"></h4>
+
+                                    <label><input type="checkbox" class="agree" required> Acepto la</label> <a
+                                        href="./politicaprivacidad.html">Política
+                                        de Privacidad.</a>
+                                    <input type="submit" class="btn btn-primary" value="Enviar">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <p><span class="glyphicon glyphicon-map-marker"></span> </p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="container marketing">
+
+
+            <!-- Container (Contact Section) -->
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">   </script>
+
+    <!-- <script type="text/javascript" src="static/JavaScript/formulario_pasos.js"></script> -->
+    <!-- <script type="text/javascript" src="static/JavaScript/formulario.js"></script> -->
+
+    <!-- COOKIES -->
+    <!--  -->
+    <link rel="stylesheet" href="static/cookies//cookieconsent.css" media="print" onload="this.media='all'">
+    <script defer src="static/cookies/cookieconsent.js"></script>
+    <script defer src="static/cookies/cookieconsent-init.js"></script>
+
+    <script type="text/plain" data-cookiecategory="analytics">
+      console.log('analytics enabled!');
+  </script>
+
+
+
+
+    <script>
+
+
+
+
+        var url_string = window.location.href; //window.location.href
+        var url = new URL(url_string);
+        var Proyecto = url.searchParams.get("Proyecto");
+
+        document.getElementById("Proyecto").value = Proyecto;
+        document.getElementById("asunto").value = "ASUNTO"+Proyecto;
+
+    </script>
+
+
+
+</body>
+
+</html>
+<!-- 
+
+git remote add origin git@github.com:asolear/asolear.github.io.git
+ -->

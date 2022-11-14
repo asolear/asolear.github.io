@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.88.1">
+  <title>Autoconsumo Colectivo. Paneles solares. Energia solar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <meta name="theme-color" content="#7952b3">
+  <script data-require="leaflet@0.7.3" data-semver="0.7.3"
+    src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    #map {
+      position: relative;
+      border: 1px solid black;
+      border-radius: 8px;
+      height: 400px;
+      /* or as desired */
+      width: 100%;
+      /* This means "100% of the width of its container", the .col-md-8 */
+    }
+  </style>
+
+
+
+
+  <link data-require="leaflet@0.7.3" data-semver="0.7.3" rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/styles/asolear.css" rel="stylesheet">
+
+
+
+  <!-- Add Google Maps Via JavaScript-->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNT1Fptd2xsBhUkzHB8gAP7lbwFIUzUas&libraries=places"></script> -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNo8yVR1bVgiLVO2QyXaRnHZRuMjVNuZ4&libraries=places"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+  <!-- <script type="text/javascript" src="static/JavaScript/mapa.js"></script> -->
+  <!-- <script type="text/javascript" src="static/JavaScript/cookies.js"></script> -->
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <button hidden id='boton_modal_formulario_hogar' type="button" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#modal_formulario_hogar">
+    formulario_modal
+  </button>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary "> -->
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://asolear.es/"><img src="img/asolear.svg" alt="" class="img-fluid"
+            width="30" height="30" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <!-- 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                AUTOCONSUMO
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item"
+                    onclick="document.getElementById('modal_guia_autoconsumidor_5_pasos').click()" href="#">HOGAR</a>
+                </li>
+                <li><a class="dropdown-item" onclick="document.getElementById('modal_guia_profesional').click()"
+                    href="#">EMPRESA</a>
+                </li>
+                <li><a class="dropdown-item" href="#">AUTOCONSUMO COLECTIVO</a>
+                </li>
+              </ul>
+            </li>
+ -->
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="#autoconsumo">AUTOCONSUMO COLECTIVO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#comunidad">COMUNIDAD ENERGETICA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#trabajos">TRABAJOS</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Nosotros
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item"
+                    onclick="document.getElementById('modal_guia_autoconsumidor_5_pasos').click()" href="#">Guía
+                    práctica
+                    para convertirse en autoconsumidor en 5 pasos (IDAE)</a>
+                </li>
+                <li><a class="dropdown-item" onclick="document.getElementById('modal_guia_profesional').click()"
+                    href="#">Guía profesional de tramitación del autoconsumo (IDAE)</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Acerca de Asolear</a></li>
+              </ul>
+            </li> -->
+          </ul>
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">CONTACTO</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-global="phone" href="tel:952289557" data-track-event="click"
+                data-track-action="phone_link">☎ 952 289 557</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://wa.me/34600366211/?text=Autoconsumo%20Eficiencia%20Comunidad" target="_blank">
+                <img src="img/logo-wasap.png" width="40" height="40">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-secondary btn-lg " role="button"
+                onclick="document.getElementById('modal_login').click()" class="stretched-link" target="_blank">
+                🧑‍💼
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+
+
+
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/app-screenshots/solar-cells-g18b5f9612_640.jpg" alt="" class="img-fluid" />
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Autoconsumo Colectivo Fotovoltaico:</h1>
+              <p>En Asolear ofrecemos instalaciones llave en mano para Comunidades con los mejores paneles
+                solares del mercado.</p>
+              <p><a class="btn btn-lg btn-warning" href="#contacto">Pide tu estudio
+                  gratuito</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/app-screenshots/solar-g50836beae_640.jpg" alt="" class="img-fluid" />
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Autoconsumo Colectivo Fotovoltaico:</h1>
+              <p>En Asolear ofrecemos instalaciones llave en mano para Comunidades con los mejores paneles
+                solares del mercado.</p>
+              <p><a class="btn btn-lg btn-warning" href="#contacto">Pide tu estudio
+                  gratuito</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/app-screenshots/solar-energy-g4d3fe9827_640.jpg" alt="" class="img-fluid" />
+
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <div class="carousel-caption">
+                <h1>Autoconsumo Colectivo Fotovoltaico:</h1>
+                <p>En Asolear ofrecemos instalaciones llave en mano para Comunidades con los mejores paneles
+                  solares del mercado.</p>
+                <p><a class="btn btn-lg btn-warning" href="#contacto">Pide tu estudio
+                    gratuito</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+      <div class="container marketing">
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">¿Cuánto me cuesta y cuánto me ahorro?</h1>
+            <p class="col-md-8 fs-4">En el caso residencial, en la actualidad, un sistema de 3 kW por vivienda puede
+              cubrir la mayoría
+              de las necesidades de
+              iluminación y consumo
+              eléctrico de un hogar de cuatro miembros y una superficie de setenta metros cuadrados, con una
+              participacion
+              de unos
+              4500 €. </p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white border bg-secondary rounded-3">
+              <h2>Amortización</h2>
+              <p>La amortización en una instalación en autoconsumo estaría
+                entre seis y diez años, ya que depende tanto de la potencia
+                instalada como del uso que se haga de la energía. Por lo que, tras la amortización de la inversión
+                inicial, el
+                ahorro en la factura eléctrica es muy notable.</p>
+              <!-- <button class="btn btn-outline-light" type="button">Example button</button> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Ayudas estatales</h2>
+              <p>Además, existen líneas de ayuda y beneficios fiscales
+                que ayudan a amortizar aún más rápido la instalación, y
+                sistemas de financiación que evitan tener que desembolsar
+                la inversión inicial de golpe.</p>
+              <!-- <button class="btn btn-outline-secondary" type="button">Example button</button> -->
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="featurette-divider">
+
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+
+
+        <div class="h-100 p-5 text-white border bg-secondary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold"> Pasos necesarios.</h1>
+            <p class="col-md-8 fs-4">Somos una empresa que se dedica específicamente a las renovables.
+              Llevamos a cabo los pasos técnicos y administrativos necesarios,
+              además de realizar la instalación con todas las garantías de seguridad.</p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img src="img/app-screenshots/office-gc583cd8f6_640.jpg" alt="" class="img-fluid" />
+
+
+            <h2>Estudio de viabilidad</h2>
+            <p>Un estudio de viabilidad que analice
+              las posibilidades de nuestro edificio,
+              el presupuesto de lo que podría costar
+              la instalación y cuánto nos podríamos
+              ahorrar en nuestro caso concreto. Para
+              esto, es posible que nos pidan datos de
+              nuestras facturas eléctricas, ya que el
+              patrón de consumo determina cuánto
+              podemos ahorrar.</p>
+            <!-- <p>              <a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="img/app-screenshots/documents-g14d5721ca_640.jpg" alt="" class="img-fluid" />
+            <h2>Trámites administrativos</h2>
+            <p>Los trámites administrativos, que en
+              función de la ubicación y la tipología
+              pueden incluir licencias de obras
+              o autorizaciones administrativas,
+              especialmente para instalaciones más
+              grandes o aquellas situadas en edificios
+              afectados por alguna figura de protección
+              o en espacios protegidos ambientalmente.
+            </p>
+            <!-- <p>              <a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="img/app-screenshots/installation-gc06f69b7f_640.jpg" alt="" class="img-fluid" />
+
+
+            <h2>Instalación</h2>
+            <p>La propia instalación, teniendo en cuenta
+              la normativa energética pero también de
+              seguridad de las instalaciones. El registro ante la comunidad autónoma y
+              las notificaciones que corresponda ante la
+              distribuidora de electricidad.</p>
+            <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+
+
+      <div class="container marketing">
+        <div id="autoconsumo" class="h-100 p-5 text-white border bg-secondary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">¿Por qué esta apuesta por el autoconsumo colectivo?</h1>
+            <p class="col-md-12 fs-4">Supone un ahorro directo para el autoconsumidor y puede reducir el precio de la
+              electricidad
+              para el resto de consumidores, puesto que el autoconsumo contribuye a abaratar el precio
+              del mercado eléctrico: por un lado, al disminuir la demanda (quien autoconsume compra
+              menos energía de la red) y, por otro lado, al aumentar la oferta de energía renovable (si
+              hay excedentes, hay más energía negociada en el mercado eléctrico).</p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Por el descenso de precios <span class="text-muted">de algunas de las
+                tecnologías renovables</span>
+            </h2>
+            <p class="lead">en especial la solar
+              fotovoltaica, que ha reducido sus costes un 80% en cinco años, y por el desarrollo
+              comercial del almacenamiento con baterías, que permitirán gestionar mejor los picos de
+              demanda y reducir la presión sobre las redes de distribución.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="img/app-screenshots/technician-gf9f7002eb_640.jpg" class="img-fluid" alt="...">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Por el aumento de precios <span class="text-muted">de algunas de las
+                tecnologías tradicionales</span>
+              <p class="lead"> En especial el gas, que acaba condicionando el precio en el mercado mayorista.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+
+            <img src="img/app-screenshots/flame-g18aeab2a8_640.jpg" class="img-fluid" alt="...">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <!-- /END THE FEATURETTES -->
+      </div><!-- /.container -->
+
+
+
+
+
+
+
+
+      <div id="comunidad" class="container marketing">
+        <div class="col-md-5 order-md-1">
+
+          <img src="img/CE-COLOR@2x.png" class="img-fluid" alt="...">
+        </div>
+        <div class="h-100 p-5 text-white border bg-secondary rounded-3">
+
+          <div class="container-fluid py-5">
+
+            <h1 class="display-5 fw-bold">Ventajas de las Comunidades Energéticas</h1>
+            <p class="col-md-12 fs-4">
+              Proporcionan a los ciudadanos un acceso justo y fácil a recursos locales de energía renovable y otros
+              servicios energéticos o de movilidad, pudiendo beneficiarse de inversiones en los mismos.
+              Los usuarios podrán tomar el control y tendrán una mayor responsabilidad para la auto-provisión de sus
+              necesidades energéticas.
+              Se crean oportunidades de inversión para ciudadanos y negocios locales
+              Ofrecer a las comunidades la posibilidad de crear ingresos que se generan y permanecen en la propia
+              comunidad local, aumentando la aceptación del desarrollo de energías renovables locales
+              Facilitación de integración de energías renovables en el sistema a través de la gestión de la demanda
+              Beneficios ambientales.
+              Beneficios sociales: creación de empleo local y fomento de la cohesión y equidad social
+            </p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">El protagonismo de los usuarios para gestionar su propia energía </h2>
+            <p class="lead"> Las comunidades son entidades jurídicas de participación totalmente voluntaria y abierta,
+              donde el control efectivo lo ejercen miembros que pueden ser personas físicas, pymes o autoridades
+              locales. El objetivo social por el que se rigen será ofrecer beneficios energéticos a la comunidad, de los
+              que se derivan también importantes objetivos medioambientales, económicos o sociales hacia los miembros de
+              la comunidad o de la localidad.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+
+            <img src="img/Luzia_Comunidades_energeticas_locales.jpg" class="img-fluid" alt="...">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">El empoderamiento del ciudadano</span>
+            </h2>
+            <p class="lead">El empoderamiento del ciudadano se hace poco a poco más visible y protagonista con las
+              Comunidades Energéticas, organizaciones en las que sus miembros se implican de una forma concienzuda para
+              gestionar su propia energía y generarla de forma eficiente y a base de fuentes de energía renovables, así
+              como en desarrollar medidas de eficiencia energética y movilidad sostenibleu</p>
+          </div>
+          <div class="col-md-5">
+            <img src="img/Comunidades_energeticas_Luzia_2.jpg" class="img-fluid" alt="...">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <!-- /END THE FEATURETTES -->
+      </div><!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+      <div class="container marketing">
+
+        <div id="trabajos" class="h-100 p-5 text-white border bg-secondary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Algunos de nuestros trabajos</h1>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+
+        <div class="container-fluid py-5">
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">Intalalacion FV sobre cubierta </strong>
+                  <h3 class="mb-0">Comunidad Energética</h3>
+                  <div class="mb-1 text-muted">Ago 21</div>
+                  <a onclick="document.getElementById('modal_login').click()" class="stretched-link">Continua leyendo
+                    🔑</a>
+                </div>
+                <div class="col-auto  d-lg-block">
+                  <img src="img/proyectos/9989703UF6598N.png" class=" w-100 h-100" alt="...">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">Intalalacion FV sobre cubierta </strong>
+                  <h3 class="mb-0">Autoconsumo compartido</h3>
+                  <div class="mb-1 text-muted">Feb 22</div>
+                  <!-- <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content. -->
+                  </p>
+                  <a onclick="document.getElementById('modal_login').click()" class="stretched-link">Continua leyendo
+                    🔑</a>
+                </div>
+                <div class="col-auto  d-lg-block">
+                  <img src="img/proyectos/9060401UF6696S.png" class=" w-100 h-100" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">Intalalacion FV sobre cubierta </strong>
+                  <h3 class="mb-0">Autoconsumo compartido</h3>
+                  <div class="mb-1 text-muted">Nov 22</div>
+                  <a onclick="document.getElementById('modal_login').click()" class="stretched-link">Continua leyendo
+                    🔑</a>
+                </div>
+                <div class="col-auto  d-lg-block">
+                  <img src="img/proyectos/6967701UF6576N.png" class=" w-100 h-100" alt="...">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">Intalalacion FV sobre cubierta </strong>
+                  <h3 class="mb-0">Autoconsumo compartido</h3>
+                  <div class="mb-1 text-muted">Nov 22</div>
+                  <!-- <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content. -->
+                  </p>
+                  <a onclick="document.getElementById('modal_login').click()" class="stretched-link">Continua leyendo
+                    🔑</a>
+                </div>
+                <div class="col-auto  d-lg-block">
+                  <img src="img/proyectos/7067101UF6576N.png" class=" w-100 h-100" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container marketing">
+
+
+        <div id="contacto" class="h-100 p-5 text-white border bg-secondary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">¿Como podemos ayudarte?</h1>
+            <p class="col-md-12 fs-4">Estamos a tu disposicion L-V de 9-18 h.</p>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+          </div>
+        </div>
+
+
+
+        <div class="card mb-3" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img src="img/building-ge34c66b02_640.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">Oficina Malaga</h5>
+                <p class="card-text">C/ Moby Dick, 30 - 29590,
+                  Málaga</p>
+                <a class="nav-link" data-global="phone" href="tel:952289557" data-track-event="click"
+                  data-track-action="phone_link">☎ 952 289 557</a>
+              </div>
+              <hr>
+              <div class="card-body">
+                <h5 class="card-title">Oficina Granada</h5>
+                <p class="card-text">C/ Eras Bajas, 8 - 18080, Lanteira
+                  Granada</p>
+                <a class="nav-link" data-global="phone" href="tel:952289557" data-track-event="click"
+                  data-track-action="phone_link">☎ 958 673 336</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                <h2>Necesitas un servicio tecnico</h2>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <form action="https://formsubmit.co/admin@asolear.es" method="POST" enctype="multipart/form-data">
+                  <!-- comandos -->
+                  <div class="row">
+                    <div class="col-md-6" style='border: 1px solid white '>
+                      <label for="Ubicacion">Ubicacion</label>
+                      <div id="map"></div>
+                    </div>
+                    <div class="col-md-6" style='border: 1px solid white '>
+                      <input type="hidden" name="_template" value="table">
+                      <input type="hidden" name="_autoresponse" value="Muchas gracias, en breve le contactaremos.">
+                      <input class="form-control" type="hidden" name="_captcha" value="false">
+                      <input type="hidden" name="_next" value="https://asolear.es/contactado.html">
+                      <input type="hidden" name="_subject" value="CONTACTO">
+                      <input type="hidden" name="_autoresponse" value="Gracias, en breve le contactaremos.">
+                      <input type="hidden" name='lat' class="form-control" id="lat">
+                      <input type="hidden" name='lng' class="form-control" id="lng">
+
+        
+                    
+
+                      <label for="Nombre">Proyecto</label>
+                      <input  name='Proyecto' class="form-control" id="Proyecto"  >
+                    
+                    
+
+                      <label for="Nombre">Nombre</label>
+                      <input name='nombre' class="form-control" id="nombre" placeholder="Nombre" required>
+
+                      <label for="email">Email</label>
+                      <input name='email' type="email" class="form-control" id="email" placeholder="Enter email"
+                        required>
+                      <label for="name">soy</label>
+                      <select name='titular' class="form-control" id="funcion" required>
+                        <option value="Administrador">Administrador de una Comunidad de vecinos</option>
+                        <option value="Presidente" selected>Presidente de una Comunidad de vecinos</option>
+                        <option value="Vecino">Vecino de una Comunidad</option>
+                        <option value="Otro">Otro</option>
+                      </select>
+
+                      <label for="name">Servicio</label>
+                      <select name='servicio' class="form-control" id="Servicio" required>
+                        <option value="Oferta" selected>Recibir Oferta para la instalacion de
+                          paneles FV.</option>
+                        <option value="Eficiencia">Estudio de Eficiencia energética</option>
+                        <option value="Comunidad">Crear una Comunidad energética</option>
+                        <option value="Incidencia">Comunidar Incidencia en mi Instalacion FV.</option>
+                        <option value="Registro">Registrarme</option>
+                        <option value="Otro">Otro</option>
+                      </select>
+
+                      <label for="Telefono">Telefono</label>
+                      <input name='telefono' class="form-control" id="Telefono" placeholder="Telefono" required>
+
+
+                      <label for="name">Comentario o consulta</label>
+                      <input name='consulta' class="form-control" id="message2" placeholder="cometario" required>
+
+                      <h4 id="response"></h4>
+
+                      <label><input type="checkbox" class="agree" required> Acepto la</label> <a
+                        href="./politicaprivacidad.html">Política
+                        de Privacidad.</a>
+                      <input type="submit" class="btn btn-primary" value="Enviar">
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p><span class="glyphicon glyphicon-map-marker"></span> </p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h2>Ofreces un servicio Tecnico</h2>
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+
+            <form action="https://formsubmit.co/admin@asolear.es" method="POST" enctype="multipart/form-data">
+              <!-- comandos -->
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_autoresponse" value="Muchas gracias, en breve le contactaremos.">
+              <input class="form-control" type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://asolear.es/index.html">
+              <input type="hidden" name="_subject" value="COLABORADOR">
+              <input type="hidden" name="_autoresponse" value="Gracias, en breve le contactaremos.">
+              <div class="col-sm-7">
+                <div class="row">
+                  <div class="column">
+                  </div>
+                  <div class="column"></div>
+                  <label for="Nombre">Nombre</label>
+                  <input name='nombre' class="form-control" id="nombre" placeholder="Nombre" required>
+
+                  <label for="email">Email</label>
+                  <input name='email' type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="col-sm-7">
+                  <!-- <label for="name">soy</label>
+                  <select name='titular' class="form-control" id="funcion" required>
+                    <option value="Instalador" selected>Instalador</option>
+                    <option value="Empresa">Empresario</option>
+                    <option value="Ingenieria">Administrador</option>
+                    <option value="Particular">Particular</option>
+                  </select> -->
+
+                  <label for="name">Servicio Ofertado</label>
+                  <select name='servicio' class="form-control" id="Servicio" required>
+                    <option value="servicio gestión energética" selected>Instalador electicista</option>
+                    <option value="Intalacion de autoconsumo">Montador de placas solares</option>
+                  </select>
+
+                  <label for="Telefono">Telefono</label>
+                  <input name='telefono' class="form-control" id="Telefono" placeholder="Telefono" required>
+
+
+                  <label for="name">Comentario o consulta</label>
+                  <input name='consulta' class="form-control" id="message2" placeholder="cometario" required>
+
+                  <label for="exampleFormControlInput1" class="form-label">Adjuntar CV:</label>
+                  <input type="file" id="myfile" name="cv" multiple><br><br>
+                  <h4 id="response"></h4>
+
+                  <label><input type="checkbox" class="agree" required> Acepto la</label> <a
+                    href="./politicaprivacidad.html">Política
+                    de Privacidad.</a>
+                  <input type="submit" class="btn btn-primary" value="Enviar">
+
+
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p><span class="glyphicon glyphicon-map-marker"></span> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container marketing">
+
+
+      <!-- Container (Contact Section) -->
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">&copy; 2022 Asolear. Ingeneria e instalaciones FV. SL</p>
+
+      <a href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="img/asolear.svg" alt="" class="img-fluid" width="30" height="30" /></a>
+
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#autoconsumo" class="nav-link px-2 text-muted">Inicio</a></li>
+        <li class="nav-item"><a href="#comunidad" class="nav-link px-2 text-muted">Comunidad E.</a></li>
+        <li class="nav-item"><a href="#autoconsumo" class="nav-link px-2 text-muted">Autoconsumo</a></li>
+        <li class="nav-item"><a href="#trabajos" class="nav-link px-2 text-muted">Trabajos</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link px-2 text-muted">Contacto</a></li>
+      </ul>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous">   </script>
+
+  <!-- <script type="text/javascript" src="static/JavaScript/formulario_pasos.js"></script> -->
+  <!-- <script type="text/javascript" src="static/JavaScript/formulario.js"></script> -->
+
+  <!-- COOKIES -->
+  <!--  -->
+  <link rel="stylesheet" href="static/cookies//cookieconsent.css" media="print" onload="this.media='all'">
+  <script defer src="static/cookies/cookieconsent.js"></script>
+  <script defer src="static/cookies/cookieconsent-init.js"></script>
+
+  <script type="text/plain" data-cookiecategory="analytics">
+      console.log('analytics enabled!');
+  </script>
+
+
+
+
+  <script>
+
+    var tileLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      'attribution': 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    });
+
+    var map = new L.Map('map', {
+      'center': [36.664, -4.458],
+      'zoom': 8,
+      'layers': [tileLayer]
+    });
+
+    var marker;
+
+    map.on('click', function (e) {
+      if (marker) {
+        map.removeLayer(marker);
+      }
+      marker = new L.Marker(e.latlng).addTo(map);
+      document.getElementById('lat').value = e.latlng.lat;
+      document.getElementById('lng').value = e.latlng.lng;
+
+    });
+
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>
+
+<!-- enlaces para hacer la pagina -->
+<!-- https://getbootstrap.com/docs/5.1/examples/carousel/ -->
+<!-- https://www.w3schools.com/howto/howto_js_form_steps.asp -->
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button hidden id="modal_login" type="button" class="btn btn-primary" data-bs-toggle="modal"
+  data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control" />
+            <label class="form-label" for="form2Example1">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+              </div>
+            </div>
+
+            <div class="col">
+              <!-- Simple link -->
+              <a href="#!">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+          <!-- Register buttons -->
+          <div class="text-center">
+            <!-- <p>Not a member? <a href="#!">Register</a></p>
+            <p>or sign up with:</p> -->
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
