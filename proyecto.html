@@ -110,7 +110,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#autoconsumo">AUTOCONSUMO COLECTIVO</a>
+                            <a class="nav-link" id="navbar_link" href="#"><span id="navbar_ref"></span></a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#comunidad">COMUNIDAD ENERGETICA</a>
@@ -176,9 +176,12 @@
                 <div class="container-fluid py-5">
                     <h4 class="display-8 fw-bold"> Solicitud de Asociación a la Instalación FV para Autoconsumo
                         Colectivo </h4>
+                    <a id="aref" href="#">
                         <p id="ref"></p>
-                        <p id="nv"></p>
-                    </div>
+                    </a>
+
+                    <p id="nv"></p>
+                </div>
             </div>
 
 
@@ -201,7 +204,7 @@
                             <input type="hidden" name="_next" value="https://asolear.es/contactado.html">
                             <input type="hidden" name="_subject" id="_subject" value="COLECTIVO">
                             <input type="hidden" name="_autoresponse" value="Gracias, en breve le contactaremos.">
-    
+
 
                             <input hidden name='proyecto' class="form-control" id="proyecto">
 
@@ -209,15 +212,14 @@
                             <label for="Nombre">Planta</label>
                             <input name='Planta' class="form-control" id="Planta" required>
                             <label for="Puerta">Puerta</label>
-                            <input name='Puerta' class="form-control" id="Puerta"  required>
+                            <input name='Puerta' class="form-control" id="Puerta" required>
                             <label for="Nombre">Portal</label>
-                            <input name='Portal' class="form-control" id="Portal" >
+                            <input name='Portal' class="form-control" id="Portal">
                             <label for="Nombre">Nombre</label>
-                            <input name='nombre' class="form-control" id="nombre"  required>
+                            <input name='nombre' class="form-control" id="nombre" required>
 
                             <label for="email">Email</label>
-                            <input name='email' type="email" class="form-control" id="email" 
-                                required>
+                            <input name='email' type="email" class="form-control" id="email" required>
                             <!-- <label for="name">soy</label>
                                     <select name='titular' class="form-control" id="funcion" required>
                                         <option value="Administrador">Administrador de una Comunidad de vecinos
@@ -246,7 +248,7 @@
  -->
 
                             <label for="name">Comentario o consulta</label>
-                            <input name='consulta' class="form-control" id="message2" >
+                            <input name='consulta' class="form-control" id="message2">
 
                             <h4 id="response"></h4>
 
@@ -405,7 +407,10 @@
         document.getElementById("proyecto").value = ref;
         document.getElementById("_subject").value = "COLECTIVO_" + ref;
         document.getElementById("ref").innerHTML = "Ref.: " + ref;
-        document.getElementById("nv").innerHTML = "Deben asociarse al menos " + (Math.ceil(((parseInt(nv)))/3))+" vecinos.";
+        document.getElementById("nv").innerHTML = "Deben asociarse al menos " + (Math.ceil(((parseInt(nv))) / 3)) + " vecinos.";
+        document.getElementById("aref").href = "/p/" + ref + ".pdf";
+        document.getElementById("navbar_ref").innerHTML = "AUTOCNOSUMO COLECTIVO " + ref;
+        document.getElementById("navbar_link").href = "/p/" + ref + ".pdf";
 
     </script>
 
