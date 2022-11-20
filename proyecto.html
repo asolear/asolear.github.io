@@ -408,7 +408,7 @@
         const a = new Date();
         const b = new Date(aa, mm, dd);
 
-        if (a.getTime() > b.getTime()) { document.getElementById("fueraplazo").innerHTML = "!! OFERTA FUERA DE PLAZO "; document.querySelector('#enviar').disabled = true; }
+        if (a.getTime() > b.getTime()) { document.getElementById("fueraplazo").innerHTML = "FUERA DE PLAZO !"; document.querySelector('#enviar').disabled = true; }
 
         document.getElementById("proyecto").value = ref;
         document.getElementById("_subject").value = "COLECTIVO_" + ref;
