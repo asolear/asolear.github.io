@@ -1,0 +1,389 @@
+<script>
+    window.web = "Electro Casa";
+    window.subtitulo = "Impulsamos un futuro con energía renovable, movilidad eléctrica y un consumo eficiente para un planeta más sostenible.";
+
+    window.web = "Watt Bucket";
+    window.subtitulo = "Diseña instalaciones fotovoltaicas con precisión y lleva la energía renovable a cada rincón. Más sostenibilidad, más ahorro, más futuro.";
+
+    window.web = "Mercado de Ahorro Energético";
+    window.subtitulo = "Consigue un precio lo más cercano posible al valor financiero establecido por el Gobierno de España (en 2024 fue superior a 182 €/MWh).";
+
+    window.web = "Calculadora de Ahorro Energético";
+    window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
+
+    window.web = "Asolear Energia";
+    window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
+
+
+
+</script>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="web"></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            /* background: url('Electro.Casa.webp') no-repeat center center/cover; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Capa negra con 50% de opacidad */
+            z-index: 0;
+            /* Asegúrate de que el overlay esté detrás del contenido */
+        }
+
+        .container>* {
+            z-index: 1;
+            /* Asegura que el contenido (texto, botones, etc.) esté por encima del overlay */
+        }
+
+        .title {
+            font-size: 64px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #ff5722;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn:hover {
+            background-color: #e64a19;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: white;
+            margin-top: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            /* Se añadió un valor más alto para asegurar que el modal se superponga */
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="title"><span id="web2"></span></div>
+        <a id="dynamic-link" href="#" class="btn">Entrar</a>
+
+        <div class="subtitle"><span id="subtitulo"></div>
+    </div>
+    <footer>
+        <p>&copy; 2025 <span id="web1"></span></p>
+        <p>
+            <a href="#" onclick="openModalPolitica(event)" style="color: #ff5722; text-decoration: underline;">Política de privacidad</a> |
+            <a href="#" onclick="openModalTerminos(event)" style="color: #ff5722; text-decoration: underline;">Términos de uso </a> |
+            <a href="#" onclick="openModalAcercade(event)" style="color: #ff5722; text-decoration: underline;">Contacto</a>
+        </p>
+    </footer>
+
+    <!-- Modal de Política de Privacidad -->
+    <div id="modalTerminos" class="modal">
+        <div class="modal-content">
+            <h1>Términos de Uso</h1>
+
+            <p><strong>1. Aceptación de los Términos</strong><br>
+                Al acceder y utilizar este sitio web (en adelante "el Sitio"), el usuario acepta estar sujeto a los
+                siguientes Términos de Uso. Si no está de acuerdo con alguno de estos términos, le pedimos que se
+                abstenga de utilizar el Sitio.</p>
+
+            <p><strong>2. Uso del Sitio</strong><br>
+                El usuario se compromete a utilizar el Sitio conforme a la legislación aplicable, de manera responsable
+                y respetuosa con los derechos de propiedad intelectual e industrial de la empresa y de terceros.</p>
+
+            <p><strong>3. Propiedad Intelectual</strong><br>
+                Todo el contenido del Sitio, incluidos textos, imágenes, gráficos, logos, iconos, software y demás
+                materiales, está protegido por derechos de propiedad intelectual e industrial. Queda prohibida su
+                reproducción, distribución, modificación o explotación sin autorización expresa.</p>
+
+            <p><strong>4. Responsabilidad</strong><br>
+                El Sitio no será responsable de ningún daño directo, indirecto o incidental que surja del uso o
+                imposibilidad de uso de este, incluyendo fallos técnicos, virus, pérdida de datos o ingresos.</p>
+
+            <p><strong>5. Enlaces a Terceros</strong><br>
+                El Sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan para
+                conveniencia del usuario, pero no implican ningún tipo de responsabilidad sobre el contenido o las
+                políticas de privacidad de dichos sitios.</p>
+
+            <p><strong>6. Modificaciones de los Términos</strong><br>
+                Nos reservamos el derecho de modificar estos Términos de Uso en cualquier momento. Cualquier cambio será
+                publicado en esta página, y la continuación del uso del Sitio por parte del usuario constituye la
+                aceptación de dichos cambios.</p>
+
+            <p><strong>7. Ley Aplicable y Jurisdicción</strong><br>
+                Estos Términos se rigen por las leyes de España. Cualquier disputa relacionada con el uso del Sitio será
+                resuelta por los tribunales competentes de Málaga.</p>
+
+            <hr> <button onclick="closeModalTerminos()"
+                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Política de Privacidad -->
+    <div id="modalPolitica" class="modal">
+        <div class="modal-content">
+            <h1>Política de Privacidad</h1>
+
+            <p><strong>1. Introducción</strong><br>
+                La protección de su privacidad es importante para nosotros. Nos comprometemos a proteger la información
+                personal que nos proporciona. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos
+                sus datos.</p>
+
+            <p><strong>2. Información que Recopilamos</strong><br>
+                Recopilamos información personal, como nombre, dirección de correo electrónico, dirección IP y datos de
+                navegación, cuando el usuario interactúa con el Sitio.</p>
+
+            <p><strong>3. Uso de la Información</strong><br>
+                La información recopilada se utiliza para mejorar nuestros servicios, personalizar la experiencia del
+                usuario, y enviarle información relevante sobre nuestro Sitio o productos.</p>
+
+            <p><strong>4. Protección de la Información</strong><br>
+                Implementamos medidas de seguridad para proteger la información personal contra accesos no autorizados,
+                alteración, divulgación o destrucción.</p>
+
+            <p><strong>5. Compartir la Información</strong><br>
+                No compartimos su información personal con terceros sin su consentimiento, excepto en los casos en que
+                sea necesario para cumplir con la ley o con un requerimiento legal.</p>
+
+            <p><strong>6. Modificaciones de la Política de Privacidad</strong><br>
+                Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Cualquier
+                cambio será publicado en esta página.</p>
+
+
+            <button onclick="closeModalPolitica()"
+                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Política de Privacidad -->
+    <div id="modalAcercade" class="modal">
+        <div class="modal-content">
+            <h1>Contacto</h1>
+
+            <p><strong>Dirección:</strong> C. Moby Dick, 30. 29004 Málaga </p></br>
+            <p><strong>Teléfono:</strong><a href="tel:+34951733491">+34 951 733 491</a></p></br>
+            <p><strong>Email:</strong><a href="mailto:info@ibercae.com">info@ibercae.com</a></p></br>
+            </br></br></br>
+            
+            <h1>Equipo</h1>
+
+            <p>
+                Somos un equipo de técnicos e ingenieros apasionados por la eficiencia energética, las energías
+                renovables y la
+                protección del medio ambiente.</p></br>
+
+            <p>
+                Provenimos de diversas generaciones, recien titulados y seniors con diversas trayectorias profesionales,
+                lo que nos permite combinar experiencia y nuevas ideas para ofrecer soluciones innovadoras y
+                sostenibles.</p></br>
+
+            <p>
+                Nuestro compromiso es claro: contribuir a un futuro más verde mediante proyectos que optimicen el uso de
+                los recursos energéticos y
+                reduzcan el impacto ambiental. Creemos que el trabajo en equipo y el enfoque interdisciplinario
+                son esenciales para enfrentar los desafíos energéticos de hoy y de mañana.</p></br>
+
+            <p>
+                Si buscas un aliado comprometido con la sostenibilidad y la tecnología al servicio del medio ambiente,
+                estás en el lugar adecuado.</p></br>
+
+
+            <p>
+                ¡Hablemos de cómo podemos construir juntos un mundo más eficiente y limpio!</p>
+
+            <button onclick="closeModalAcercade()"
+                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+        </div>
+    </div>
+
+
+    <!-- Modal de Cookies -->
+    <div id="modalCookies" class="modal">
+        <div class="modal-content">
+            <h2>Política de Cookies</h2>
+            <p>Este sitio web usa cookies para mejorar su experiencia.</p>
+            <button onclick="acceptCookies()"
+                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Aceptar</button>
+        </div>
+    </div>
+
+    <script>
+        // Verifica si el usuario ya ha aceptado las cookies
+        window.onload = function () {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Si no se ha aceptado, abre el modal de cookies
+                document.getElementById('modalCookies').style.display = 'flex';
+            } else {
+                // Si ya se ha aceptado, no se muestra el modal de cookies
+                document.getElementById('modalCookies').style.display = 'none';
+            }
+
+            // Generar favicon
+        };
+
+        // Guarda la aceptación de las cookies en localStorage
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            closeModalCookies();
+        }
+
+        // Cierra el modal de cookies
+        function closeModalCookies() {
+            document.getElementById('modalCookies').style.display = 'none';
+        }
+
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalPolitica(event) {
+            event.preventDefault();
+            document.getElementById('modalPolitica').style.display = 'flex';
+        }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalTerminos(event) {
+            event.preventDefault();
+            document.getElementById('modalTerminos').style.display = 'flex';
+        }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalAcercade(event) {
+            event.preventDefault();
+            document.getElementById('modalAcercade').style.display = 'flex';
+        }
+
+        // Cierra el modal de Política de Privacidad
+        function closeModalPolitica() {
+            document.getElementById('modalPolitica').style.display = 'none';
+        }
+        // Cierra el modal de Política de Privacidad
+        function closeModalTerminos() {
+            document.getElementById('modalTerminos').style.display = 'none';
+        }
+        // Cierra el modal de Política de Privacidad
+        function closeModalAcercade() {
+            document.getElementById('modalAcercade').style.display = 'none';
+        }
+    </script>
+
+    <script>
+
+        var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
+        // var api = web.replace(/\s+/g, "").toLowerCase();
+        var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
+
+
+        document.getElementById('dynamic-link').href = `https://caeserver.duckdns.org/${api}/`;
+        document.querySelector('.container').style.background = `url('${web}.webp') no-repeat center center/cover`;
+        document.getElementById("subtitulo").innerHTML = subtitulo;
+        document.getElementById("web").innerHTML = web;
+        document.getElementById("web1").innerHTML = web;
+        document.getElementById("web2").innerHTML = web;
+        // document.getElementById("web3").innerHTML = web;
+
+        generateFavicon(initials);
+
+        // Función para generar el favicon
+        function generateFavicon(initials) {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+
+            // Usar las iniciales de la variable 'web'
+            var text = initials;  // "EC"
+
+            // Configuración del tamaño del canvas y del texto
+            canvas.width = 64;
+            canvas.height = 64;
+            context.font = "42px sans-serif";  // Tamaño del texto
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillStyle = "#ff5722";  // Color del texto
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+            // Crear un enlace <link> para usarlo como favicon
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
+            document.head.appendChild(link);
+        }
+
+    </script>
+
+    </script>
+</body>
+
+</html>
