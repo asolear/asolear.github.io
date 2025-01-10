@@ -15,14 +15,97 @@
     window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
 
 
+    window.keywords = keywords = [
+        "instalación paneles solares",
+        "asesoría energías renovables",
+        "diseño proyectos energías renovables",
+        "instalación paneles solares",
+        "instalación energía fotovoltaica",
+        "energía renovable solar",
+        "energía renovable eólica",
+        "energía solar fotovoltaica",
+        "soluciones energéticas sostenibles",
+        "consultoría energía renovable",
+        "proyectos energía renovable",
+        "instalación baterías coches eléctricos",
+        "eficiencia energética en viviendas",
+        "eficiencia energética empresas",
+        "ahorro energético en hogares",
+        "asesoría energética para empresas",
+        "energías limpias",
+        "sistemas fotovoltaicos",
+        "energía solar para empresas",
+        "energía solar residencial",
+        "energía eólica para empresas",
+        "energía limpia y renovable",
+        "energía verde",
+        "soluciones solares a medida",
+        "instalación de cargadores eléctricos",
+        "optimización energética",
+        "paneles solares para viviendas",
+        "sistemas de energía autónoma",
+        "baterías para almacenamiento de energía",
+        "energía renovable para empresas",
+        "ahorro de electricidad",
+        "energías alternativas",
+        "transición energética",
+        "vehículos eléctricos y energías renovables",
+        "sostenibilidad energética",
+        "soluciones fotovoltaicas personalizadas",
+        "instalaciones eólicas para empresas",
+        "eficiencia energética en proyectos industriales",
+        "sistemas de energía renovable para empresas"
+    ]
+
 
 </script>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Nombre del producto",
+          "image": "URL de la imagen del producto",
+          "description": "Descripción del producto",
+          "sku": "Número de SKU",
+          "offers": {
+            "@type": "Offer",
+            "url": "URL del producto",
+            "priceCurrency": "USD",
+            "price": "Precio del producto"
+          }
+        }
+        </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Descripción para los motores de búsqueda -->
+    <meta name="description" content="Descripción corta y precisa sobre tu página o negocio">
+
+    <!-- Palabras clave relevantes para tu página -->
+    <meta name="keywords" content="">
+
+    <!-- Autores o derechos de autor -->
+    <meta name="author" content="Tu nombre o tu empresa">
+
+    <!-- Redirección 301 (si es necesario, por ejemplo en sitios que redirigen a otro dominio) -->
+    <!-- <meta http-equiv="refresh" content="0;url=https://www.nuevodominio.com"> -->
+    <meta property="og:title" content="Título de tu página">
+    <meta property="og:description" content="Descripción de tu página">
+    <meta property="og:image" content="URL de la imagen que quieres mostrar">
+    <!-- <meta property="og:url" content="https://www.tudominio.com"> -->
+    <!-- <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Título de tu página">
+    <meta name="twitter:description" content="Descripción de tu página">
+    <meta name="twitter:image" content="URL de la imagen"> -->
+
+
     <title id="web"></title>
     <style>
         * {
@@ -78,7 +161,7 @@
             padding: 15px 30px;
             font-size: 20px;
             color: white;
-            background-color: #ff5722;
+            background-color: #1976D2;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -88,7 +171,7 @@
         }
 
         .btn:hover {
-            background-color: #e64a19;
+            background-color: #1976D2;
         }
 
         .subtitle {
@@ -132,9 +215,6 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-
-
-
     </style>
 </head>
 
@@ -149,11 +229,34 @@
     <footer>
         <p>&copy; 2025 <span id="web1"></span></p>
         <p>
-            <a href="#" onclick="openModalPolitica(event)" style="color: #ff5722; text-decoration: underline;">Política de privacidad</a> |
-            <a href="#" onclick="openModalTerminos(event)" style="color: #ff5722; text-decoration: underline;">Términos de uso </a> |
-            <a href="#" onclick="openModalAcercade(event)" style="color: #ff5722; text-decoration: underline;">Contacto</a>
-        </p>
+            <a href="#" onclick="openModalPolitica(event)" style="color: #1976D2; text-decoration: underline;">Política
+                de privacidad</a> |
+            <a href="#" onclick="openModalTerminos(event)" style="color: #1976D2; text-decoration: underline;">Términos
+                de uso </a> |
+            <a href="#" onclick="openModalAcercade(event)"
+                style="color: #1976D2; text-decoration: underline;">Contacto</a>
+                <a href="#" onclick="openModal_(event)" style="color: #1976D2; text-decoration: underline;">.</a>
+            </p>
     </footer>
+
+    <!-- Modal de SEO -->
+    <div id="modal_" class="modal">
+        <div class="modal-content">
+            <h1>Ibercae</h1>
+
+        </br><a href="https://tejado.solar/">tejado.solar</a>
+        </br><a href="https://asolear.com/">asolear.com</a>
+        </br><a href="https://mecae.es/">mecae.es</a>
+        </br><a href="https://calcae.es/">calcae.es</a>
+        </br><a href="https://electro.casa/">electro.casa</a>
+        </br><a href="https://wattbucket.com/">wattbucket.com</a>
+                 
+
+            <hr> <button onclick="closeModal_()"
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
+        </div>
+    </div>
+
 
     <!-- Modal de Política de Privacidad -->
     <div id="modalTerminos" class="modal">
@@ -193,7 +296,7 @@
                 resuelta por los tribunales competentes de Málaga.</p>
 
             <hr> <button onclick="closeModalTerminos()"
-                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
         </div>
     </div>
 
@@ -229,7 +332,7 @@
 
 
             <button onclick="closeModalPolitica()"
-                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
         </div>
     </div>
 
@@ -242,7 +345,7 @@
             <p><strong>Teléfono:</strong><a href="tel:+34951733491">+34 951 733 491</a></p></br>
             <p><strong>Email:</strong><a href="mailto:info@ibercae.com">info@ibercae.com</a></p></br>
             </br></br></br>
-            
+
             <h1>Equipo</h1>
 
             <p>
@@ -270,7 +373,7 @@
                 ¡Hablemos de cómo podemos construir juntos un mundo más eficiente y limpio!</p>
 
             <button onclick="closeModalAcercade()"
-                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Cerrar</button>
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
         </div>
     </div>
 
@@ -281,7 +384,7 @@
             <h2>Política de Cookies</h2>
             <p>Este sitio web usa cookies para mejorar su experiencia.</p>
             <button onclick="acceptCookies()"
-                style="margin-top:10px; padding:10px 20px; background:#ff5722; color:white; border:none; border-radius:5px;">Aceptar</button>
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Aceptar</button>
         </div>
     </div>
 
@@ -325,6 +428,12 @@
             event.preventDefault();
             document.getElementById('modalAcercade').style.display = 'flex';
         }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModal_(event) {
+            event.preventDefault();
+            document.getElementById('modal_').style.display = 'flex';
+        }
+
 
         // Cierra el modal de Política de Privacidad
         function closeModalPolitica() {
@@ -338,6 +447,12 @@
         function closeModalAcercade() {
             document.getElementById('modalAcercade').style.display = 'none';
         }
+        // Cierra el modal deSEO
+        function closeModal_() {
+            document.getElementById('modal_').style.display = 'none';
+        }
+
+
     </script>
 
     <script>
@@ -354,6 +469,21 @@
         document.getElementById("web1").innerHTML = web;
         document.getElementById("web2").innerHTML = web;
         // document.getElementById("web3").innerHTML = web;
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        metaKeywords.setAttribute('content', keywords.join(', '));
+        // 
+        const metaDescription = document.querySelector('meta[name="description"]');
+        metaDescription.setAttribute('content', subtitulo);
+        // 
+        const metaauthor = document.querySelector('meta[name="author"]');
+        metaauthor.setAttribute('content', web);
+
+        const metaOgTitle = document.querySelector('meta[property="og:title"]');
+        metaOgTitle.setAttribute('content', web);
+
+        const metaOgdescription = document.querySelector('meta[property="og:description"]');
+        metaOgdescription.setAttribute('content', subtitulo);
+
 
         generateFavicon(initials);
 
@@ -371,7 +501,7 @@
             context.font = "42px sans-serif";  // Tamaño del texto
             context.textAlign = "center";
             context.textBaseline = "middle";
-            context.fillStyle = "#ff5722";  // Color del texto
+            context.fillStyle = "#1976D2";  // Color del texto
             context.fillText(text, canvas.width / 2, canvas.height / 2);
 
             // Crear un enlace <link> para usarlo como favicon
